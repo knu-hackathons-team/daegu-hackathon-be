@@ -19,6 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class searchLog {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
