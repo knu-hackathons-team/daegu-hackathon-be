@@ -20,6 +20,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class KakaoToken {
 
+    @NotNull
+    int expires_in;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
@@ -31,8 +33,6 @@ public class KakaoToken {
     private String accessToken;
     @NotNull
     private String refreshToken;
-    @NotNull
-    int expires_in;
     @NotNull
     private LocalDateTime issuedAt;
     @NotNull
