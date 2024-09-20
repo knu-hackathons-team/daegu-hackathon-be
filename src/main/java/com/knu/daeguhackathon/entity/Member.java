@@ -12,12 +12,16 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Member {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,8 +44,4 @@ public class Member {
     private List<Subject> subjects = new ArrayList<>();
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<searchLog> searchLogs = new ArrayList<>();
-
-    public Member() {
-
-    }
 }

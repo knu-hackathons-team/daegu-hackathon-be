@@ -6,12 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Building {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +30,4 @@ public class Building {
     @NotNull
     @OneToOne
     private Subject subject;
-
-    public Building() {
-
-    }
 }

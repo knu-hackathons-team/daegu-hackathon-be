@@ -8,12 +8,16 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class searchLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -26,8 +30,4 @@ public class searchLog {
     private LocalDateTime searchTime;
     @NotNull
     private String searchThing;
-
-    public searchLog() {
-
-    }
 }

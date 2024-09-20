@@ -8,12 +8,16 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class KakaoToken {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +37,4 @@ public class KakaoToken {
     private LocalDateTime issuedAt;
     @NotNull
     private LocalDateTime updated_at;
-
-    public KakaoToken() {
-
-    }
 }

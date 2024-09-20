@@ -8,12 +8,16 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Subject {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +33,4 @@ public class Subject {
     @OneToOne
     @JoinColumn(name = "building_id")
     private Building building;
-
-    public Subject() {
-
-    }
 }
