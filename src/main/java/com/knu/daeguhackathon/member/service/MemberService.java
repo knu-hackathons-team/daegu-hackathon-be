@@ -1,6 +1,7 @@
 package com.knu.daeguhackathon.member.service;
 
 import com.knu.daeguhackathon.member.Member;
+import com.knu.daeguhackathon.member.dto.MemberResponse;
 import com.knu.daeguhackathon.member.repository.MemberRepository;
 import jakarta.transaction.Transactional;
 import java.time.LocalDateTime;
@@ -20,22 +21,47 @@ public class MemberService {
             .orElseThrow(() -> new RuntimeException("유효하지 않은 토큰입니다."));
     }
 
-    public void registerMember(String email, String name) {
+    public void registerMember(String email) {
         memberRepository.findByEmail(email)
             .ifPresentOrElse(member -> {
                 throw new RuntimeException("이미 존재하는 email입니다.");
             }, () -> {
-                Member newMember = Member.builder().email(email).name(name).createdTime(
+                Member newMember = Member.builder().email(email).createdTime(
                     LocalDateTime.now()).build();
                 memberRepository.save(newMember);
             });
     }
 
     @Transactional
-    public void addMemberInfo(Long memberId, int speed, String nickname) {
+    public void addMemberInfo(Long memberId, String name, int speed, String nickname) {
         Member member = memberRepository.findById(memberId)
             .orElseThrow(() -> new RuntimeException("id에 해당하는 member가 없습니다."));
-        member.setDetail(speed, nickname);
+        member.setDetail(name, speed, nickname);
+    }
+
+    public boolean findUserByEmail(String email) {
+        return memberRepository.findByEmail(email).isPresent();
+    }
+
+    public MemberResponse getMemberInfo(Long memberId) {
+        Member member = memberRepository.findById(memberId).orElseThrow(
+            () -> new RuntimeException("id에 해당하는 멤버가 없습니다.")
+        );
+
+        return MemberResponse.builder()
+            .name(member.getName())
+            .nickName(member.getNickName())
+            .email(member.getEmail())
+            .createdTime(member.getCreatedTime())
+            .build();
+    }
+
+    @Transactional
+    public void changeMemberNickName(Long memberId, String nickName) {
+        Member member = memberRepository.findById(memberId).orElseThrow(
+            () -> new RuntimeException("id에 해당하는 멤버가 없습니다.")
+        );
+        member.setNickName(nickName);
     }
 
 }

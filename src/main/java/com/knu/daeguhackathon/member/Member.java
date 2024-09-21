@@ -1,8 +1,8 @@
 package com.knu.daeguhackathon.member;
 
 import com.knu.daeguhackathon.global.BaseTimeEntity;
-import com.knu.daeguhackathon.searchlog.SearchLog;
 import com.knu.daeguhackathon.kakaotoken.KakaoToken;
+import com.knu.daeguhackathon.searchlog.SearchLog;
 import com.knu.daeguhackathon.subject.Subject;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -16,11 +16,15 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,22 +36,20 @@ public class Member extends BaseTimeEntity {
     @NotNull
     @Column(unique = true)
     private String email;
-    @NotNull
     private String name;
     @NotNull
     private LocalDateTime createdTime;
     private int speed;
     private String nickName;
-    @NotNull
     @OneToOne
     private KakaoToken kakaoToken;
-    @NotNull
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Subject> subjects = new ArrayList<>();
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<SearchLog> searchLogs = new ArrayList<>();
 
-    public void setDetail(int speed, String nickName) {
+    public void setDetail(String name, int speed, String nickName) {
+        this.name = name;
         this.speed = speed;
         this.nickName = nickName;
     }
