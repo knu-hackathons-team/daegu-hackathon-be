@@ -20,14 +20,13 @@ public class KakaoTokenService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public KakaoToken saveKakaoToken(String email, KakaoTokenResponse tokenInfo) {
+    public void saveKakaoToken(String email, KakaoTokenResponse tokenInfo) {
 
         Member member = memberRepository.findByEmail(email).orElseThrow(
             () -> new RuntimeException("이메일에 해당하는 Member가 없습니다")
         );
 
         KakaoToken kakaoToken = KakaoToken.builder()
-            .member(member)
             .accessToken(tokenInfo.accessToken())
             .refreshToken(tokenInfo.refreshToken())
             .expires_in(tokenInfo.expiresIn())
@@ -35,7 +34,9 @@ public class KakaoTokenService {
             .updated_at(LocalDateTime.now())
             .build();
 
-        return kakaoTokenRepository.save(kakaoToken);
+        KakaoToken savedToken = kakaoTokenRepository.save(kakaoToken);
+
+        member.setKakaoToken(savedToken);
     }
 
     @Transactional
