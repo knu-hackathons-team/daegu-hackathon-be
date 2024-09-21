@@ -1,5 +1,6 @@
 package com.knu.daeguhackathon.building;
 
+import com.knu.daeguhackathon.global.BaseTimeEntity;
 import com.knu.daeguhackathon.subject.Subject;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +15,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Building {
+public class Building  {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

@@ -1,6 +1,7 @@
 package com.knu.daeguhackathon.subject;
 
 import com.knu.daeguhackathon.building.Building;
+import com.knu.daeguhackathon.global.BaseTimeEntity;
 import com.knu.daeguhackathon.member.Member;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Subject {
+public class Subject extends BaseTimeEntity {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

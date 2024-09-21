@@ -1,5 +1,6 @@
 package com.knu.daeguhackathon.member;
 
+import com.knu.daeguhackathon.global.BaseTimeEntity;
 import com.knu.daeguhackathon.searchlog.SearchLog;
 import com.knu.daeguhackathon.kakaotoken.KakaoToken;
 import com.knu.daeguhackathon.subject.Subject;
@@ -23,7 +24,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Member {
+public class Member extends BaseTimeEntity {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

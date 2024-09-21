@@ -1,5 +1,6 @@
 package com.knu.daeguhackathon.searchlog;
 
+import com.knu.daeguhackathon.global.BaseTimeEntity;
 import com.knu.daeguhackathon.member.Member;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +18,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SearchLog {
+public class SearchLog extends BaseTimeEntity {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
