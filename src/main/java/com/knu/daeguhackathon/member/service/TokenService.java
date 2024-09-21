@@ -27,7 +27,7 @@ public class TokenService {
             .setIssuedAt(new Date())
             .setExpiration(
                 new Date(System.currentTimeMillis() + TEN_HOURS))
-            .signWith(secretKey, SignatureAlgorithm.ES256)
+            .signWith(secretKey, SignatureAlgorithm.HS256)
             .compact();
     }
 
