@@ -6,8 +6,8 @@ public class BuildingRequest {
 
     @Builder
     public record Name(
-            String name
-    ){
+        String name
+    ) {
 
     }
 }

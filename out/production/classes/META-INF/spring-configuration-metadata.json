@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "kakao",
+      "type": "com.knu.daeguhackathon.config.KakaoProperties",
+      "sourceType": "com.knu.daeguhackathon.config.KakaoProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "kakao.client-id",
+      "type": "java.lang.String",
+      "sourceType": "com.knu.daeguhackathon.config.KakaoProperties"
+    },
+    {
+      "name": "kakao.default-password",
+      "type": "java.lang.String",
+      "sourceType": "com.knu.daeguhackathon.config.KakaoProperties"
+    },
+    {
+      "name": "kakao.front-redirect-uri",
+      "type": "java.lang.String",
+      "sourceType": "com.knu.daeguhackathon.config.KakaoProperties"
+    },
+    {
+      "name": "kakao.redirect-uri",
+      "type": "java.lang.String",
+      "sourceType": "com.knu.daeguhackathon.config.KakaoProperties"
+    }
+  ],
+  "hints": []
+}
