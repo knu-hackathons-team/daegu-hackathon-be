@@ -1,36 +1,31 @@
-package com.knu.daeguhackathon.entity;
+package com.knu.daeguhackathon.building;
 
+import com.knu.daeguhackathon.subject.Subject;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Data
+@Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Subject {
+public class Building {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
     @NotNull
-    private String courseName;
+    private String buildingName;
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "member_id")
-    private Member member;
+    private Double latitude;
+    @NotNull
+    private Double longitude;
     @NotNull
     @OneToOne
-    @JoinColumn(name = "building_id")
-    private Building building;
+    private Subject subject;
 }
