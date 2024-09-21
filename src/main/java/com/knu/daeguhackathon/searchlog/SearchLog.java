@@ -32,3 +32,4 @@ public class SearchLog extends BaseTimeEntity {
     @NotNull
     private String searchThing;
 }
+

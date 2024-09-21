@@ -47,3 +47,4 @@ public class Member extends BaseTimeEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<SearchLog> SearchLogs = new ArrayList<>();
 }
+
