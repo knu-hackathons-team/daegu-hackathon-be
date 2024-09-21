@@ -1,9 +1,12 @@
 package com.knu.daeguhackathon.config;
 
+import java.time.Duration;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -17,6 +20,16 @@ public class WebConfig implements WebMvcConfigurer {
 
     private final TokenInterceptor tokenInterceptor;
     private final LoginMemberArgumentResolver loginMemberArgumentResolver;
+
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder,
+        RestTemplateResponseErrorHandler errorHandler) {
+        return builder
+            .errorHandler(errorHandler)
+            .setConnectTimeout(Duration.ofSeconds(5))
+            .setReadTimeout(Duration.ofSeconds(5))
+            .build();
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
