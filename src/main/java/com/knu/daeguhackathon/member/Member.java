@@ -36,7 +36,7 @@ public class Member extends BaseTimeEntity {
     private String name;
     @NotNull
     private LocalDateTime createdTime;
-    private Double speed;
+    private int speed;
     private String nickName;
     @NotNull
     @OneToOne
@@ -45,6 +45,11 @@ public class Member extends BaseTimeEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Subject> subjects = new ArrayList<>();
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
-    private List<SearchLog> SearchLogs = new ArrayList<>();
+    private List<SearchLog> searchLogs = new ArrayList<>();
+
+    public void setDetail(int speed, String nickName) {
+        this.speed = speed;
+        this.nickName = nickName;
+    }
 }
 
