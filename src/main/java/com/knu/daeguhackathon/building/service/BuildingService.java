@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class BuildingService {
 
-<<<<<<<HEAD
-=======
     private final BuildingRepository buildingRepository;
 
     public BuildingResponse.Info getBuildingInfoByName(BuildingRequest.Name request) {
@@ -47,5 +45,4 @@ public class BuildingService {
             .build();
     }
 
->>>>>>>main
 }

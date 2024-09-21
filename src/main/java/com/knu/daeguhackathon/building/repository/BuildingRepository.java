@@ -9,13 +9,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BuildingRepository extends JpaRepository<Building, Long> {
-<<<<<<<HEAD
-=======
 
     Optional<Building> findByBuildingName(String buildingName);
 
     List<Building> findAllByBuildingName(String buildingName);
-
->>>>>>>main
 
 }

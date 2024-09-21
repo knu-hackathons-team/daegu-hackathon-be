@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api/building")
 public class BuildingController {
-<<<<<<<HEAD
 
-=======
     private final BuildingService buildingService;
 
     @GetMapping("")
@@ -29,5 +27,4 @@ public class BuildingController {
     public BuildingResponse.Buildings getAllBuildings() {
         return buildingService.getAllBuildings();
     }
->>>>>>>main
 }
