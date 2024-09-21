@@ -4,6 +4,7 @@ import com.knu.daeguhackathon.distance.Distance;
 import com.knu.daeguhackathon.distance.controller.dto.DistanceRequest;
 import com.knu.daeguhackathon.distance.repository.DistanceRepository;
 import com.knu.daeguhackathon.member.Member;
+import com.knu.daeguhackathon.member.repository.MemberRepository;
 import com.knu.daeguhackathon.searchlog.SearchLog;
 import com.knu.daeguhackathon.searchlog.repository.SearchLogRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,12 @@ public class DistanceService {
 
     private final DistanceRepository distanceRepository;
     private final SearchLogRepository searchLogRepository;
+    private final MemberRepository memberRepository;
 
-    public void saveDistance(Member loginMember, DistanceRequest.Info request) {
+    public void saveDistance(Long loginMemberId, DistanceRequest.Info request) {
+
+        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
+
         Distance distance = Distance.builder()
             .startBuildingName(request.startBuildingName())
             .endBuildingName(request.endBuildingName())

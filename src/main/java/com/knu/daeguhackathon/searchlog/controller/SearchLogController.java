@@ -1,5 +1,6 @@
 package com.knu.daeguhackathon.searchlog.controller;
 
+import com.knu.daeguhackathon.config.LoginMember;
 import com.knu.daeguhackathon.global.dto.GlobalResponse;
 import com.knu.daeguhackathon.searchlog.controller.dto.SearchLogResponse;
 import com.knu.daeguhackathon.searchlog.service.SearchLogService;
@@ -18,10 +19,10 @@ public class SearchLogController {
     private final SearchLogService searchLogService;
 
     @GetMapping("")
-    public SearchLogResponse.Logs getAllSearchLogs() {
-        // TODO getAllSearchLogs()
-        return null;
-
+    public SearchLogResponse.Logs getAllSearchLogs(
+            @LoginMember Long memberId
+    ) {
+        return searchLogService.getAllSearchLog(memberId);
     }
 
     @DeleteMapping("/{logId}")
@@ -36,8 +37,9 @@ public class SearchLogController {
 
     @DeleteMapping("/all")
     public GlobalResponse deleteAllSearchLog(
+            @LoginMember Long memberId
     ) {
-        //TODO searchLogService.deleteAllSearchLog()
+        searchLogService.deleteAllSearchLog(memberId);
         return GlobalResponse.builder()
             .message("전체 로그 삭제가 완료되었습니다.")
             .build();

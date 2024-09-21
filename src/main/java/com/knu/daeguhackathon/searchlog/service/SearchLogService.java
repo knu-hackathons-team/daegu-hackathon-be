@@ -1,6 +1,7 @@
 package com.knu.daeguhackathon.searchlog.service;
 
 import com.knu.daeguhackathon.member.Member;
+import com.knu.daeguhackathon.member.repository.MemberRepository;
 import com.knu.daeguhackathon.searchlog.SearchLog;
 import com.knu.daeguhackathon.searchlog.controller.dto.SearchLogResponse;
 import com.knu.daeguhackathon.searchlog.repository.SearchLogRepository;
@@ -13,8 +14,10 @@ import org.springframework.stereotype.Service;
 public class SearchLogService {
 
     private SearchLogRepository searchLogRepository;
+    private MemberRepository memberRepository;
 
-    public SearchLogResponse.Logs getAllSearchLog(Member loginMember) {
+    public SearchLogResponse.Logs getAllSearchLog(Long loginMemberId) {
+        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
         List<SearchLog> searchLogList = searchLogRepository.findAllByMember(loginMember);
 
         List<SearchLogResponse.Info> allSearchLogs = searchLogList.stream().map(
@@ -36,7 +39,8 @@ public class SearchLogService {
         searchLogRepository.delete(searchLog);
     }
 
-    public void deleteAllSearchLog(Member loginMember) {
+    public void deleteAllSearchLog(Long loginMemberId) {
+        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
         searchLogRepository.deleteAllByMember(loginMember);
     }
 }

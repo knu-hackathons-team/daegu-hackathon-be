@@ -1,5 +1,6 @@
 package com.knu.daeguhackathon.subject.controller;
 
+import com.knu.daeguhackathon.config.LoginMember;
 import com.knu.daeguhackathon.global.dto.GlobalResponse;
 import com.knu.daeguhackathon.subject.controller.dto.SubjectRepsonse;
 import com.knu.daeguhackathon.subject.controller.dto.SubjectRequest;
@@ -25,34 +26,38 @@ public class SubjectController {
 
     @PostMapping("")
     public GlobalResponse addSubject(
-        @RequestBody SubjectRequest.Add request
+        @RequestBody SubjectRequest.Add request,
+        @LoginMember Long memberId
     ) {
-        //TODO addSubject()
+        subjectService.addSubject(memberId, request);
         return GlobalResponse.builder().message("과목생성완료").build();
 
     }
 
     @DeleteMapping("/{subjectId}")
     public GlobalResponse deleteSubject(
-        @RequestParam(name = "subjectId") Long subjectId
+        @RequestParam(name = "subjectId") Long subjectId,
+        @LoginMember Long memberId
     ) {
-        //TODO deleteSubject()
+        subjectService.deleteSubject(memberId, subjectId);
         return GlobalResponse.builder().message("과목삭제완료").build();
     }
 
     @PatchMapping("/{subjectId}")
     public GlobalResponse updateSubject(
         @RequestParam(name = "subjectId") Long subjectId,
-        @RequestBody SubjectRequest.Update request
+        @RequestBody SubjectRequest.Update request,
+        @LoginMember Long memberId
     ) {
-        //TODO updateSubject()
+        subjectService.updateSubject(memberId, subjectId, request);
         return GlobalResponse.builder().message("과목수정완료").build();
     }
 
     @DeleteMapping("")
     public GlobalResponse deleteAllubject(
+            @LoginMember Long memberId
     ) {
-        //TODO deleteAllSubject()
+        subjectService.deleteAllSubject(memberId);
         return GlobalResponse.builder().message("전체과목삭제완료").build();
     }
 
