@@ -4,7 +4,6 @@ import com.knu.daeguhackathon.building.controller.dto.BuildingRequest;
 import com.knu.daeguhackathon.building.controller.dto.BuildingResponse;
 import com.knu.daeguhackathon.building.service.BuildingService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,17 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api/building")
 public class BuildingController {
+
     private final BuildingService buildingService;
 
     @GetMapping("")
     public BuildingResponse.Info getBuildingInfo(
-            @RequestBody BuildingRequest.Name request
-    ){
-       return buildingService.getBuildingInfoByName(request);
+        @RequestBody BuildingRequest.Name request
+    ) {
+        return buildingService.getBuildingInfoByName(request);
     }
 
     @GetMapping("/all")
-    public BuildingResponse.Buildings getAllBuildings(){
+    public BuildingResponse.Buildings getAllBuildings() {
         return buildingService.getAllBuildings();
     }
 }

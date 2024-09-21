@@ -1,21 +1,22 @@
 package com.knu.daeguhackathon.searchlog.controller.dto;
 
+import java.util.List;
 import lombok.Builder;
 
-import java.util.List;
-
 public class SearchLogResponse {
+
     @Builder
     public record Logs(
-            List<Info> logs
-    ){
+        List<Info> logs
+    ) {
 
     }
+
     @Builder
     public record Info(
-            String startBuildingName,
-            String endBuildingName
-    ){
+        String startBuildingName,
+        String endBuildingName
+    ) {
 
     }
 }
