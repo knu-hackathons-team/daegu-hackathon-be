@@ -1,12 +1,11 @@
 package com.knu.daeguhackathon.subject.controller.dto;
 
 
-import com.knu.daeguhackathon.subject.Subject;
 import lombok.Builder;
 
 import java.util.List;
 
-public class SubjectRepsonse {
+public class SubjectResponse {
 
     @Builder
     public record Subjects(
