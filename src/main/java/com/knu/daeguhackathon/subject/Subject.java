@@ -33,4 +33,8 @@ public class Subject extends BaseTimeEntity {
     @OneToOne
     @JoinColumn(name = "building_id")
     private Building building;
+    @NotNull
+    private double startHour;
+    @NotNull
+    private double finalHour;
 }
