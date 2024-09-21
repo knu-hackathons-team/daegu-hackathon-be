@@ -1,25 +1,30 @@
 package com.knu.daeguhackathon.distance.controller;
 
+import com.knu.daeguhackathon.distance.controller.dto.DistanceRequest;
+import com.knu.daeguhackathon.distance.service.DistanceService;
 import com.knu.daeguhackathon.global.dto.GlobalResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/distance")
 public class DistanceController {
+    private final DistanceService distanceService;
+    @PostMapping("/timetable")
+    public GlobalResponse sendResultByTimeTable(
+            @RequestBody DistanceRequest.Info request
+            ){
+        //TODO saveDistance()
 
-    //TODO 카카오톡메시지로 길찾기 결과 전송
-
-    @GetMapping("/timetable")
-    public GlobalResponse sendResultByTimeTable(){
-        return GlobalResponse.builder().message("메시지가 전송되었습니다").build();
+        return GlobalResponse.builder().message("ok").build();
     }
-    @GetMapping("/search")
-    public GlobalResponse sendResultBySearch(){
-        return GlobalResponse.builder().message("메시지가 전송되었습니다").build();
+    @PostMapping("/search")
+    public GlobalResponse sendResultBySearch(
+            @RequestBody DistanceRequest.Info request
+    ){
+        //TODO saveDistance()
+        return GlobalResponse.builder().message("ok").build();
     }
 }
