@@ -3,9 +3,6 @@ package com.knu.daeguhackathon.subject.controller.dto;
 import lombok.Builder;
 
 public class SubjectRequest {
-<<<<<<<HEAD
-
-=======
 
     @Builder
     public record Add(
@@ -35,5 +32,4 @@ public class SubjectRequest {
     ) {
 
     }
->>>>>>>main
 }

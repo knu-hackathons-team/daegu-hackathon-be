@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SearchLogService {
 
-<<<<<<<HEAD
-=======
     private SearchLogRepository searchLogRepository;
 
     public SearchLogResponse.Logs getAllSearchLog(Member loginMember) {
@@ -41,5 +39,4 @@ public class SearchLogService {
     public void deleteAllSearchLog(Member loginMember) {
         searchLogRepository.deleteAllByMember(loginMember);
     }
->>>>>>>main
 }
