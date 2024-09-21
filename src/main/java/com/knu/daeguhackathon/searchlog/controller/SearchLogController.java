@@ -4,24 +4,21 @@ import com.knu.daeguhackathon.global.dto.GlobalResponse;
 import com.knu.daeguhackathon.searchlog.controller.dto.SearchLogResponse;
 import com.knu.daeguhackathon.searchlog.service.SearchLogService;
 import lombok.RequiredArgsConstructor;
-<<<<<<< HEAD
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-=======
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
->>>>>>> main
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/searchlog")
 public class SearchLogController {
-<<<<<<< HEAD
 
-=======
     private final SearchLogService searchLogService;
 
     @GetMapping("")
-    public SearchLogResponse.Logs getAllSearchLogs(){
+    public SearchLogResponse.Logs getAllSearchLogs() {
         // TODO getAllSearchLogs()
         return null;
 
@@ -29,20 +26,20 @@ public class SearchLogController {
 
     @DeleteMapping("/{logId}")
     public GlobalResponse deleteSearchLog(
-            @RequestParam(name = "logId") Long logId
-    ){
+        @RequestParam(name = "logId") Long logId
+    ) {
         searchLogService.deleteSearchLogById(logId);
         return GlobalResponse.builder()
-                .message("로그 삭제가 완료되었습니다.")
-                .build();
+            .message("로그 삭제가 완료되었습니다.")
+            .build();
     }
+
     @DeleteMapping("/all")
     public GlobalResponse deleteAllSearchLog(
-    ){
+    ) {
         //TODO searchLogService.deleteAllSearchLog()
         return GlobalResponse.builder()
-                .message("전체 로그 삭제가 완료되었습니다.")
-                .build();
+            .message("전체 로그 삭제가 완료되었습니다.")
+            .build();
     }
->>>>>>> main
 }

@@ -13,28 +13,25 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DistanceService {
 
-<<<<<<< HEAD
-=======
     private final DistanceRepository distanceRepository;
     private final SearchLogRepository searchLogRepository;
 
-    public void saveDistance(Member loginMember, DistanceRequest.Info request){
+    public void saveDistance(Member loginMember, DistanceRequest.Info request) {
         Distance distance = Distance.builder()
-                .startBuildingName(request.startBuildingName())
-                .endBuildingName(request.endBuildingName())
-                .buildingDistance(request.buildingDistance())
-                .estimatedTime(request.estimatedTime())
-                .build();
+            .startBuildingName(request.startBuildingName())
+            .endBuildingName(request.endBuildingName())
+            .buildingDistance(request.buildingDistance())
+            .estimatedTime(request.estimatedTime())
+            .build();
 
         distanceRepository.save(distance);
 
         SearchLog searchLog = SearchLog.builder()
-                .member(loginMember)
-                .startBuildingName(distance.getStartBuildingName())
-                .endBuildingName(distance.getEndBuildingName())
-                .build();
+            .member(loginMember)
+            .startBuildingName(distance.getStartBuildingName())
+            .endBuildingName(distance.getEndBuildingName())
+            .build();
         searchLogRepository.save(searchLog);
 
     }
->>>>>>> main
 }

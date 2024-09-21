@@ -43,7 +43,8 @@ public class Subject extends BaseTimeEntity {
     @NotNull
     private Double finalHour;
 
-    public void updateSubjectInfo(String courseName, String subjectCode, Building building, double startHour, double finalHour){
+    public void updateSubjectInfo(String courseName, String subjectCode, Building building,
+        double startHour, double finalHour) {
         this.courseName = courseName;
         this.subjectCode = subjectCode;
         this.building = building;
