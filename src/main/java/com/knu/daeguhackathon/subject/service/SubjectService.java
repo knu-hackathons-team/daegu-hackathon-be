@@ -20,7 +20,8 @@ public class SubjectService {
     private final MemberRepository memberRepository;
     private final BuildingRepository buildingRepository;
 
-    public void addSubject(Member loginMember, SubjectRequest.Add request) {
+    public void addSubject(Long loginMemberId, SubjectRequest.Add request) {
+        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
         Member member = memberRepository.findById(loginMember.getId())
             .orElseThrow(() -> new RuntimeException("해당 사용자를 찾을 수 없습니다."));
 
@@ -38,7 +39,8 @@ public class SubjectService {
         subjectRepository.save(newSubject);
     }
 
-    public void deleteSubject(Member loginMember, Long subjectId) {
+    public void deleteSubject(Long loginMemberId, Long subjectId) {
+        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
         Subject subject = subjectRepository.findById(subjectId)
             .orElseThrow(() -> new RuntimeException("해당 과목을 찾을 수 없습니다."));
 
@@ -49,8 +51,8 @@ public class SubjectService {
         subjectRepository.deleteById(subjectId);
     }
 
-    public void deleteAllSubject(Member loginMember) {
-
+    public void deleteAllSubject(Long loginMemberId) {
+        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
         List<Subject> subjects = subjectRepository.findAllByMember(loginMember);
 
         if (subjects.isEmpty()) {
@@ -61,7 +63,10 @@ public class SubjectService {
 
     }
 
-    public void updateSubject(Member loginMember, Long subjectId, SubjectRequest.Update request) {
+    public void updateSubject(Long loginMemberId, Long subjectId, SubjectRequest.Update request) {
+
+        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
+
         Subject subject = subjectRepository.findById(subjectId)
             .orElseThrow(() -> new RuntimeException("해당 과목을 찾을 수 없습니다."));
 

@@ -1,5 +1,6 @@
 package com.knu.daeguhackathon.distance.controller;
 
+import com.knu.daeguhackathon.config.LoginMember;
 import com.knu.daeguhackathon.distance.controller.dto.DistanceRequest;
 import com.knu.daeguhackathon.distance.service.DistanceService;
 import com.knu.daeguhackathon.global.dto.GlobalResponse;
@@ -18,18 +19,20 @@ public class DistanceController {
 
     @PostMapping("/timetable")
     public GlobalResponse sendResultByTimeTable(
-        @RequestBody DistanceRequest.Info request
+        @RequestBody DistanceRequest.Info request,
+        @LoginMember Long memberId
     ) {
-        //TODO saveDistance()
+        distanceService.saveDistance(memberId, request);
 
         return GlobalResponse.builder().message("ok").build();
     }
 
     @PostMapping("/search")
     public GlobalResponse sendResultBySearch(
-        @RequestBody DistanceRequest.Info request
+        @RequestBody DistanceRequest.Info request,
+        @LoginMember Long memberId
     ) {
-        //TODO saveDistance()
+        distanceService.saveDistance(memberId, request);
         return GlobalResponse.builder().message("ok").build();
     }
 
