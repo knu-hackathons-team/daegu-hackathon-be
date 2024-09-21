@@ -2,13 +2,15 @@ package com.knu.daeguhackathon.subject.controller.dto;
 
 
 import java.util.List;
+import java.util.Map;
+
 import lombok.Builder;
 
 public class SubjectResponse {
 
     @Builder
     public record Subjects(
-        List<Info> subjects
+        List<SubjectResponse.Info> subjects
     ) {
 
     }
@@ -19,7 +21,24 @@ public class SubjectResponse {
         String location,
         String code,
         double startHour,
-        double finalHour
+        double finalHour,
+
+        Map<String, String> lectureTime
+    ) {
+
+    }
+    @Builder
+    public record SubjectList(
+            List<SubjectResponse.ListInfo> subjects
+    ) {
+
+    }
+    @Builder
+    public record ListInfo(
+            String name,
+            String location,
+            String code,
+            Map<String, String> lectureTime
     ) {
 
     }

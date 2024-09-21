@@ -2,13 +2,19 @@ package com.knu.daeguhackathon.subject.service;
 
 import com.knu.daeguhackathon.building.Building;
 import com.knu.daeguhackathon.building.repository.BuildingRepository;
+import com.knu.daeguhackathon.global.utils.course.Course;
+import com.knu.daeguhackathon.global.utils.course.repository.CourseRepository;
 import com.knu.daeguhackathon.member.Member;
 import com.knu.daeguhackathon.member.repository.MemberRepository;
 import com.knu.daeguhackathon.subject.Subject;
 import com.knu.daeguhackathon.subject.controller.dto.SubjectRequest;
 import com.knu.daeguhackathon.subject.controller.dto.SubjectResponse;
 import com.knu.daeguhackathon.subject.repository.SubjectRepository;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +25,7 @@ public class SubjectService {
     private final SubjectRepository subjectRepository;
     private final MemberRepository memberRepository;
     private final BuildingRepository buildingRepository;
+    private final CourseRepository courseRepository;
 
     public void addSubject(Long loginMemberId, SubjectRequest.Add request) {
         Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
@@ -103,5 +110,41 @@ public class SubjectService {
             .subjects(subjectInfos)
             .build();
 
+    }
+
+    public SubjectResponse.SubjectList getSubjectList(){
+        List<Course> courseList = courseRepository.findAll();
+
+        List<SubjectResponse.ListInfo> subjectList = courseList.stream().map(
+                course -> SubjectResponse.ListInfo.builder()
+                        .name(course.getCourseName())
+                        .location(course.getClassroom())
+                        .code(course.getCourseId())
+                        .lectureTime(parseLectureTime(course.getLectureTime()))
+                        .build()
+
+        ).toList();
+        return SubjectResponse.SubjectList.builder()
+                .subjects(subjectList)
+                .build();
+    }
+
+    private Map<String, String> parseLectureTime(String rawLectureTime) {
+        Map<String, String> lectureTimeMap = new HashMap<>();
+
+        String[] dayTimePairs = rawLectureTime.split("\n");
+
+        for (String dayTimePair : dayTimePairs) {
+            String[] parts = dayTimePair.split(" ", 2);
+            if (parts.length == 2) {
+                String day = parts[0];
+                String times = parts[1];
+
+
+                lectureTimeMap.merge(day, times, (existingTimes, newTimes) -> existingTimes + ", " + newTimes);
+            }
+        }
+
+        return lectureTimeMap;
     }
 }
