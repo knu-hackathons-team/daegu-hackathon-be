@@ -18,11 +18,13 @@ public class Distance {
     @Id
     private Long id;
     @NotNull
-    private String startBuilingName;
+    private String startBuildingName;
     @NotNull
-    private String endBuilingName;
+    private String endBuildingName;
     @NotNull
-    private int builingDistance;
+    private int buildingDistance;
     @NotNull
     private int estimatedTime;
+    @NotNull
+    private String imageUrl;
 }
