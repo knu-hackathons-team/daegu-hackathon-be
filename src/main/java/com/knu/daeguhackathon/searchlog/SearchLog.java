@@ -28,8 +28,6 @@ public class SearchLog extends BaseTimeEntity {
     @JoinColumn(name = "member_id")
     private Member member;
     @NotNull
-    private LocalDateTime searchTime;
-    @NotNull
     private String searchThing;
 }
 

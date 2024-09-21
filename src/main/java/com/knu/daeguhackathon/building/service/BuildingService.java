@@ -25,6 +25,24 @@ public class BuildingService {
                 .build();
 
     }
+    public BuildingResponse.Buildings getAllBuildings(){
+        List<Building> buildingList = buildingRepository.findAll();
+        if(buildingList.isEmpty()){
+            throw new RuntimeException("건물이 하나도 없습니다.");
+        }
+        List<BuildingResponse.Info> buildingInfoList = buildingList.stream()
+                .map(
+                        building -> BuildingResponse.Info.builder()
+                                .buildingName(building.getBuildingName())
+                                .longitude(building.getLongitude())
+                                .latitude(building.getLatitude())
+                                .build()
+                )
+                .toList();
 
+        return BuildingResponse.Buildings.builder()
+                .buildings(buildingInfoList)
+                .build();
+    }
 
 }

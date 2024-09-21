@@ -22,4 +22,9 @@ public class BuildingController {
     ){
        return buildingService.getBuildingInfoByName(request);
     }
+
+    @GetMapping("/all")
+    public BuildingResponse.Buildings getAllBuildings(){
+        return buildingService.getAllBuildings();
+    }
 }
