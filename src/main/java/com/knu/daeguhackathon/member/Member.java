@@ -39,7 +39,7 @@ public class Member extends BaseTimeEntity {
     private String name;
     @NotNull
     private LocalDateTime createdTime;
-    private int speed;
+    private Double speed;
     private String nickName;
     @OneToOne(cascade = CascadeType.PERSIST)
     private KakaoToken kakaoToken;
@@ -48,7 +48,7 @@ public class Member extends BaseTimeEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<SearchLog> searchLogs = new ArrayList<>();
 
-    public void setDetail(String name, int speed, String nickName) {
+    public void setDetail(String name, Double speed, String nickName) {
         this.name = name;
         this.speed = speed;
         this.nickName = nickName;

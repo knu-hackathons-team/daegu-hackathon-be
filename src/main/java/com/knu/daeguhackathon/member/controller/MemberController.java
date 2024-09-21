@@ -5,9 +5,9 @@ import com.knu.daeguhackathon.config.LoginMember;
 import com.knu.daeguhackathon.kakaotoken.dto.KakaoTokenResponse;
 import com.knu.daeguhackathon.kakaotoken.service.KakaoApiService;
 import com.knu.daeguhackathon.kakaotoken.service.KakaoTokenService;
-import com.knu.daeguhackathon.member.dto.MemberNickName;
 import com.knu.daeguhackathon.member.dto.MemberRequest;
 import com.knu.daeguhackathon.member.dto.MemberResponse;
+import com.knu.daeguhackathon.member.dto.MemberSpeed;
 import com.knu.daeguhackathon.member.service.MemberService;
 import com.knu.daeguhackathon.member.service.TokenService;
 import java.net.URI;
@@ -74,10 +74,22 @@ public class MemberController {
         return ResponseEntity.ok().body(response);
     }
 
-    @PatchMapping("/api/member/nickname")
-    public ResponseEntity<Void> changeMemberNickName(@LoginMember Long memberId, @RequestBody
-    MemberNickName memberNickName) {
-        memberService.changeMemberNickName(memberId, memberNickName.nickName());
+    @PatchMapping("/member/nickname")
+    public ResponseEntity<Void> changeMemberNickName(@LoginMember Long memberId, @RequestParam("nickname")
+    String memberNickName) {
+        memberService.changeMemberNickName(memberId, memberNickName);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/member/speed")
+    public ResponseEntity<MemberSpeed> getMemberSpeed(@LoginMember Long memberId) {
+        MemberSpeed response = memberService.getMemberSpeed(memberId);
+        return ResponseEntity.ok().body(response);
+    }
+
+    @PatchMapping("/member/speed")
+    public ResponseEntity<Void> changeMemberSpeed(@LoginMember Long memberId, @RequestParam("speed") Double memberSpeed) {
+        memberService.changeMemberSpeed(memberId, memberSpeed);
         return ResponseEntity.ok().build();
     }
 }

@@ -2,6 +2,7 @@ package com.knu.daeguhackathon.member.service;
 
 import com.knu.daeguhackathon.member.Member;
 import com.knu.daeguhackathon.member.dto.MemberResponse;
+import com.knu.daeguhackathon.member.dto.MemberSpeed;
 import com.knu.daeguhackathon.member.repository.MemberRepository;
 import jakarta.transaction.Transactional;
 import java.time.LocalDateTime;
@@ -33,7 +34,7 @@ public class MemberService {
     }
 
     @Transactional
-    public void addMemberInfo(Long memberId, String name, int speed, String nickname) {
+    public void addMemberInfo(Long memberId, String name, Double speed, String nickname) {
         Member member = memberRepository.findById(memberId)
             .orElseThrow(() -> new RuntimeException("id에 해당하는 member가 없습니다."));
         member.setDetail(name, speed, nickname);
@@ -62,6 +63,21 @@ public class MemberService {
             () -> new RuntimeException("id에 해당하는 멤버가 없습니다.")
         );
         member.setNickName(nickName);
+    }
+
+    @Transactional
+    public void changeMemberSpeed(Long memberId, Double speed) {
+        Member member = memberRepository.findById(memberId).orElseThrow(
+            () -> new RuntimeException("id에 해당하는 멤버가 없습니다.")
+        );
+        member.setSpeed(speed);
+    }
+
+    public MemberSpeed getMemberSpeed(Long memberId) {
+        Member member = memberRepository.findById(memberId).orElseThrow(
+            () -> new RuntimeException("id에 해당하는 멤버가 없습니다.")
+        );
+        return new MemberSpeed(member.getSpeed());
     }
 
 }
