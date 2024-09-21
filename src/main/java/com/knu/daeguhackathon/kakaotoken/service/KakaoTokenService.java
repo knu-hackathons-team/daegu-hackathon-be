@@ -19,6 +19,7 @@ public class KakaoTokenService {
     private final KakaoApiService kakaoApiService;
     private final MemberRepository memberRepository;
 
+    @Transactional
     public KakaoToken saveKakaoToken(String email, KakaoTokenResponse tokenInfo) {
 
         Member member = memberRepository.findByEmail(email).orElseThrow(
