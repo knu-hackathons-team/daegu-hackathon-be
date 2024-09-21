@@ -9,7 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -30,8 +29,8 @@ public class SearchLog extends BaseTimeEntity {
     @JoinColumn(name = "member_id")
     private Member member;
     @NotNull
-    private LocalDateTime searchTime;
+    private String startBuildingName;
     @NotNull
-    private String searchThing;
+    private String endBuildingName;
 }
 

@@ -29,6 +29,8 @@ public class Subject extends BaseTimeEntity {
     @NotNull
     private String courseName;
     @NotNull
+    private String subjectCode;
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
@@ -37,7 +39,15 @@ public class Subject extends BaseTimeEntity {
     @JoinColumn(name = "building_id")
     private Building building;
     @NotNull
-    private double startHour;
+    private Double startHour;
     @NotNull
-    private double finalHour;
+    private Double finalHour;
+
+    public void updateSubjectInfo(String courseName, String subjectCode, Building building, double startHour, double finalHour){
+        this.courseName = courseName;
+        this.subjectCode = subjectCode;
+        this.building = building;
+        this.startHour = startHour;
+        this.finalHour = finalHour;
+    }
 }
