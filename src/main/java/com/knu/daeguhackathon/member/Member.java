@@ -41,7 +41,7 @@ public class Member extends BaseTimeEntity {
     private LocalDateTime createdTime;
     private int speed;
     private String nickName;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private KakaoToken kakaoToken;
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Subject> subjects = new ArrayList<>();
