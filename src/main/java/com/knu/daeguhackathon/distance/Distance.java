@@ -20,14 +20,11 @@ public class Distance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    @NotNull
     private String startBuildingName;
-    @NotNull
     private String endBuildingName;
-    @NotNull
-    private int buildingDistance;
-    @NotNull
+    private Double buildingDistance;
     private int estimatedTime;
-    @NotNull
     private String imageUrl;
+    private String dayName;
+
 }

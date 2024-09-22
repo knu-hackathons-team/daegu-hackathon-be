@@ -7,6 +7,7 @@ import com.knu.daeguhackathon.member.Member;
 import com.knu.daeguhackathon.member.repository.MemberRepository;
 import com.knu.daeguhackathon.searchlog.SearchLog;
 import com.knu.daeguhackathon.searchlog.repository.SearchLogRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ public class DistanceService {
     private final SearchLogRepository searchLogRepository;
     private final MemberRepository memberRepository;
 
+    @Transactional
     public void saveDistance(Long loginMemberId, DistanceRequest.Info request) {
 
         Member loginMember = memberRepository.findById(loginMemberId)
@@ -29,6 +31,7 @@ public class DistanceService {
                 .buildingDistance(request.buildingDistance())
                 .estimatedTime(request.estimatedTime())
                 .imageUrl(request.imageUrl())
+                .dayName(request.dayName())
                 .build();
 
         distanceRepository.save(distance);
@@ -37,6 +40,10 @@ public class DistanceService {
             .member(loginMember)
             .startBuildingName(distance.getStartBuildingName())
             .endBuildingName(distance.getEndBuildingName())
+            .estimatedTime(distance.getEstimatedTime())
+            .buildingDistance(distance.getBuildingDistance())
+            .imageUrl(distance.getImageUrl())
+            .dayName(distance.getDayName())
             .build();
         searchLogRepository.save(searchLog);
 
