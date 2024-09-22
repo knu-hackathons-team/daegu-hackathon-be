@@ -35,7 +35,7 @@ public class KakaoTokenService {
             .build();
 
         KakaoToken savedToken = kakaoTokenRepository.save(kakaoToken);
-
+        savedToken.setMember(member);
         member.setKakaoToken(savedToken);
     }
 
