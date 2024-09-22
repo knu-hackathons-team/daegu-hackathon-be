@@ -9,7 +9,8 @@ public class DistanceRequest {
         String startBuildingName,
         String endBuildingName,
         int buildingDistance,
-        int estimatedTime
+        int estimatedTime,
+        String imageUrl
 
     ) {
 

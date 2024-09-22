@@ -23,11 +23,12 @@ public class DistanceService {
         Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
 
         Distance distance = Distance.builder()
-            .startBuildingName(request.startBuildingName())
-            .endBuildingName(request.endBuildingName())
-            .buildingDistance(request.buildingDistance())
-            .estimatedTime(request.estimatedTime())
-            .build();
+                .startBuildingName(request.startBuildingName())
+                .endBuildingName(request.endBuildingName())
+                .buildingDistance(request.buildingDistance())
+                .estimatedTime(request.estimatedTime())
+                .imageUrl(request.imageUrl())
+                .build();
 
         distanceRepository.save(distance);
 
