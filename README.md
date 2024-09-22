@@ -1,7 +1,12 @@
 # 사군자팀 - WheelCampus
 <a href='https://ifh.cc/v-6PMsQD' target='_blank'>
-    <img src='https://ifh.cc/g/6PMsQD.jpg' width="200px;" style="display: block; margin: 0 auto;" border='0'>
+    <img src='https://ifh.cc/g/8yS02n.png' width="200px;" style="display: block; margin: 0 auto;" border='0'>
 </a>
+
+---
+### 서비스 링크 : https://wheelcampus.vercel.app
+* 주의사항 : 브라우저에서 보안관련 오류가 뜰 수 있습니다.
+---
 
 ## 서비스 요약
 WheelCampus - 휠체어를 사용하는 경북대학교 학생들을 위한 시간표 기반 길찾기 서비스
@@ -35,6 +40,7 @@ WheelCampus - 휠체어를 사용하는 경북대학교 학생들을 위한 시�
 ## 시연 영상
 (필수) Youtube 링크
 (선택) Github Repository 페이지에서 바로 볼 수 있도록 넣어주셔도 좋습니다.
+
 
 ## 서비스 소개
 ### 서비스 개요
@@ -71,6 +77,9 @@ WheelCampus - 휠체어를 사용하는 경북대학교 학생들을 위한 시�
 - 백엔드 서버 : AWS
 - 지도 api: Tmap API (JS)
 - Oauth: Kakao
+
+- 프론트 깃허브 레포지토리 : https://github.com/knu-hackathons-team/daegu-hackathon-fe
+- 백엔드 깃허브 레포지토리 : https://github.com/knu-hackathons-team/daegu-hackathon-be
 
 ## 향후 개선 혹은 발전 방안
 - 비즈니스 인증을 받아 카카오 채널과 연동하여 메세지를 전송
