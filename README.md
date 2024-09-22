@@ -40,8 +40,7 @@ WheelCampus - 휠체어를 사용하는 경북대학교 학생들을 위한 길�
 
 
 ## 시연 영상
-(필수) Youtube 링크
-(선택) Github Repository 페이지에서 바로 볼 수 있도록 넣어주셔도 좋습니다.
+https://www.youtube.com/shorts/Z4ywU26XwfU
 
 
 ## 서비스 소개
