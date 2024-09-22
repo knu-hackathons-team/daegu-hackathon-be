@@ -23,7 +23,7 @@ public class KakaoMessageService {
     private final MemberRepository memberRepository;
 
     public void sendResultMessage(Long memberId, String start, String end,
-        int estimatedTime, Double buildingDistance) {
+        Double estimatedTime, Double buildingDistance) {
         Member member = memberRepository.findById(memberId).orElseThrow(
             () -> new RuntimeException("id에 해당하는 멤버가 없습니다.")
         );
@@ -45,13 +45,13 @@ public class KakaoMessageService {
     }
 
     private String createTemplateObject(String name, String start, String end,
-        int estimatedTime, Double buildingDistance) {
+        Double estimatedTime, Double buildingDistance) {
         return """
             {
                 "object_type": "feed",
                 "content": {
                     "title": "%s님의 %s에서 %s까지의 길찾기 결과",
-                    "description": "총 소요시간: %d분\\n총 이동거리: %.1fKm",
+                    "description": "총 소요시간: %d분\\n총 이동거리: %.1fm",
                     "image_url": "https://ifh.cc/g/8yS02n.png",
                     "image_width": 640,
                     "image_height": 640,
