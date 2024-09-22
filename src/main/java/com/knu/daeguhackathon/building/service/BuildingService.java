@@ -1,7 +1,6 @@
 package com.knu.daeguhackathon.building.service;
 
 import com.knu.daeguhackathon.building.Building;
-import com.knu.daeguhackathon.building.controller.dto.BuildingRequest;
 import com.knu.daeguhackathon.building.controller.dto.BuildingResponse;
 import com.knu.daeguhackathon.building.repository.BuildingRepository;
 import java.util.List;
@@ -14,8 +13,8 @@ public class BuildingService {
 
     private final BuildingRepository buildingRepository;
 
-    public BuildingResponse.Info getBuildingInfoByName(BuildingRequest.Name request) {
-        Building building = buildingRepository.findByBuildingName(request.name())
+    public BuildingResponse.Info getBuildingInfoByName(String name) {
+        Building building = buildingRepository.findByBuildingName(name)
             .orElseThrow(() -> new RuntimeException("해당 빌딩을 찾을 수 없습니다. "));
         return BuildingResponse.Info.builder()
             .buildingName(building.getBuildingName())

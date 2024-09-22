@@ -17,7 +17,8 @@ public class SearchLogService {
     private MemberRepository memberRepository;
 
     public SearchLogResponse.Logs getAllSearchLog(Long loginMemberId) {
-        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
+        Member loginMember = memberRepository.findById(loginMemberId)
+            .orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
         List<SearchLog> searchLogList = searchLogRepository.findAllByMember(loginMember);
 
         List<SearchLogResponse.Info> allSearchLogs = searchLogList.stream().map(
@@ -40,7 +41,8 @@ public class SearchLogService {
     }
 
     public void deleteAllSearchLog(Long loginMemberId) {
-        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
+        Member loginMember = memberRepository.findById(loginMemberId)
+            .orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
         searchLogRepository.deleteAllByMember(loginMember);
     }
 }

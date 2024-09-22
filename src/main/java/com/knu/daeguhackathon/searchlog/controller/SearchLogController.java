@@ -20,7 +20,7 @@ public class SearchLogController {
 
     @GetMapping("")
     public SearchLogResponse.Logs getAllSearchLogs(
-            @LoginMember Long memberId
+        @LoginMember Long memberId
     ) {
         return searchLogService.getAllSearchLog(memberId);
     }
@@ -37,7 +37,7 @@ public class SearchLogController {
 
     @DeleteMapping("/all")
     public GlobalResponse deleteAllSearchLog(
-            @LoginMember Long memberId
+        @LoginMember Long memberId
     ) {
         searchLogService.deleteAllSearchLog(memberId);
         return GlobalResponse.builder()
