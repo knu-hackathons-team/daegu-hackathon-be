@@ -8,9 +8,10 @@ public class DistanceRequest {
     public record Info(
         String startBuildingName,
         String endBuildingName,
-        int buildingDistance,
+        Double buildingDistance,
         int estimatedTime,
-        String imageUrl
+        String imageUrl,
+        String dayName
 
     ) {
 

@@ -1,4 +1,4 @@
-# 사군자 - WheelCampus
+# 사군자팀 - WheelCampus
 <a href='https://ifh.cc/v-6PMsQD' target='_blank'>
     <img src='https://ifh.cc/g/6PMsQD.jpg' width="200px;" style="display: block; margin: 0 auto;" border='0'>
 </a>
@@ -21,7 +21,7 @@ WheelCampus - 휠체어를 사용하는 경북대학교 학생들을 위한 시�
         <br /><sub><b>김건 - BE</b></sub>
     </td>
     <td align="center">
-        <img src="https://ifh.cc/g/XS4qyq.jpg" alt="박신영" border="0" width="100px;" /></a>
+        <img src="https://ifh.cc/g/XS4qyq.jpg" alt="박신영" border="0" width="105px;" /></a>
         <br /><sub><b>박신영 - FE</b></sub>
     </td>
     <td align="center">
@@ -45,6 +45,7 @@ WheelCampus - 휠체어를 사용하는 경북대학교 학생들을 위한 시�
 
 ### 타서비스와의 차별점
 일반적인 지도 앱들은 휠체어 사용자를 위한 경로를 제공하지 않는 경우가 많음
+
 시간표와 연동하여 사용자가 실제 사용하기 용이한 결과를 제공
 
 ### 구현 내용 및 결과물

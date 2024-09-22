@@ -28,9 +28,11 @@ public class SearchLog extends BaseTimeEntity {
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
-    @NotNull
     private String startBuildingName;
-    @NotNull
     private String endBuildingName;
+    private String imageUrl;
+    private int estimatedTime;
+    private Double buildingDistance;
+    private String dayName;
 }
 

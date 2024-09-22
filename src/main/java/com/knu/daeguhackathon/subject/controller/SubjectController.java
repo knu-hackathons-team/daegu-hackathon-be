@@ -2,6 +2,7 @@ package com.knu.daeguhackathon.subject.controller;
 
 import com.knu.daeguhackathon.config.LoginMember;
 import com.knu.daeguhackathon.global.dto.GlobalResponse;
+import com.knu.daeguhackathon.global.utils.course.dto.CourseResponse;
 import com.knu.daeguhackathon.subject.controller.dto.SubjectRequest;
 import com.knu.daeguhackathon.subject.controller.dto.SubjectResponse;
 import com.knu.daeguhackathon.subject.service.SubjectService;
@@ -60,7 +61,7 @@ public class SubjectController {
     }
 
     @GetMapping("/search")
-    public SubjectResponse.Subjects getSubjectsByName(
+    public CourseResponse.Lists getSubjectsByName(
         @RequestParam("name") String name
     ) {
         return subjectService.getSubjectByName(name);
