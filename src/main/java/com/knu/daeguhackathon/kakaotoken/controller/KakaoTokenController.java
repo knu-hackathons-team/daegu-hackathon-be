@@ -18,7 +18,7 @@ public class KakaoTokenController {
     @PostMapping("/api/timetable/kakao")
     public ResponseEntity<Void> sendTimetableKakaoMessage(@LoginMember Long memberId,
         @RequestBody KakaoResultRequest request) {
-        kakaoMessageService.sendResultMessage(memberId, request.dayName(), request.imageUrl(),
+        kakaoMessageService.sendResultMessage(memberId, request.start(), request.end(),
             request.estimatedTime(), request.buildingDistance());
         return ResponseEntity.ok().build();
     }
