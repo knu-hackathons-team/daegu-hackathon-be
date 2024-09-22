@@ -5,7 +5,6 @@ import com.knu.daeguhackathon.global.dto.GlobalResponse;
 import com.knu.daeguhackathon.subject.controller.dto.SubjectRequest;
 import com.knu.daeguhackathon.subject.controller.dto.SubjectResponse;
 import com.knu.daeguhackathon.subject.service.SubjectService;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,7 +53,7 @@ public class SubjectController {
 
     @DeleteMapping("")
     public GlobalResponse deleteAllubject(
-            @LoginMember Long memberId
+        @LoginMember Long memberId
     ) {
         subjectService.deleteAllSubject(memberId);
         return GlobalResponse.builder().message("전체과목삭제완료").build();
@@ -62,9 +61,9 @@ public class SubjectController {
 
     @GetMapping("/search")
     public SubjectResponse.Subjects getSubjectsByName(
-        @RequestBody SubjectRequest.Name request
+        @RequestParam("name") String name
     ) {
-        return subjectService.getSubjectByName(request);
+        return subjectService.getSubjectByName(name);
 
     }
 

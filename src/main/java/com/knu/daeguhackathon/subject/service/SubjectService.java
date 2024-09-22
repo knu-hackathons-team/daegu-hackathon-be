@@ -10,11 +10,9 @@ import com.knu.daeguhackathon.subject.Subject;
 import com.knu.daeguhackathon.subject.controller.dto.SubjectRequest;
 import com.knu.daeguhackathon.subject.controller.dto.SubjectResponse;
 import com.knu.daeguhackathon.subject.repository.SubjectRepository;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +26,8 @@ public class SubjectService {
     private final CourseRepository courseRepository;
 
     public void addSubject(Long loginMemberId, SubjectRequest.Add request) {
-        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
+        Member loginMember = memberRepository.findById(loginMemberId)
+            .orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
         Member member = memberRepository.findById(loginMember.getId())
             .orElseThrow(() -> new RuntimeException("해당 사용자를 찾을 수 없습니다."));
 
@@ -47,7 +46,8 @@ public class SubjectService {
     }
 
     public void deleteSubject(Long loginMemberId, Long subjectId) {
-        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
+        Member loginMember = memberRepository.findById(loginMemberId)
+            .orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
         Subject subject = subjectRepository.findById(subjectId)
             .orElseThrow(() -> new RuntimeException("해당 과목을 찾을 수 없습니다."));
 
@@ -59,7 +59,8 @@ public class SubjectService {
     }
 
     public void deleteAllSubject(Long loginMemberId) {
-        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
+        Member loginMember = memberRepository.findById(loginMemberId)
+            .orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
         List<Subject> subjects = subjectRepository.findAllByMember(loginMember);
 
         if (subjects.isEmpty()) {
@@ -72,7 +73,8 @@ public class SubjectService {
 
     public void updateSubject(Long loginMemberId, Long subjectId, SubjectRequest.Update request) {
 
-        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
+        Member loginMember = memberRepository.findById(loginMemberId)
+            .orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
 
         Subject subject = subjectRepository.findById(subjectId)
             .orElseThrow(() -> new RuntimeException("해당 과목을 찾을 수 없습니다."));
@@ -90,8 +92,8 @@ public class SubjectService {
         subjectRepository.save(subject);
     }
 
-    public SubjectResponse.Subjects getSubjectByName(SubjectRequest.Name request) {
-        List<Subject> allSubjects = subjectRepository.findAllByCourseName(request.name());
+    public SubjectResponse.Subjects getSubjectByName(String name) {
+        List<Subject> allSubjects = subjectRepository.findAllByCourseName(name);
 
         if (allSubjects.isEmpty()) {
             throw new RuntimeException("해당 과목을 찾을 수 없습니다.");
@@ -112,21 +114,21 @@ public class SubjectService {
 
     }
 
-    public SubjectResponse.SubjectList getSubjectList(){
+    public SubjectResponse.SubjectList getSubjectList() {
         List<Course> courseList = courseRepository.findAll();
 
         List<SubjectResponse.ListInfo> subjectList = courseList.stream().map(
-                course -> SubjectResponse.ListInfo.builder()
-                        .name(course.getCourseName())
-                        .location(course.getClassroom())
-                        .code(course.getCourseId())
-                        .lectureTime(parseLectureTime(course.getLectureTime()))
-                        .build()
+            course -> SubjectResponse.ListInfo.builder()
+                .name(course.getCourseName())
+                .location(course.getClassroom())
+                .code(course.getCourseId())
+                .lectureTime(parseLectureTime(course.getLectureTime()))
+                .build()
 
         ).toList();
         return SubjectResponse.SubjectList.builder()
-                .subjects(subjectList)
-                .build();
+            .subjects(subjectList)
+            .build();
     }
 
     private Map<String, String> parseLectureTime(String rawLectureTime) {
@@ -140,8 +142,8 @@ public class SubjectService {
                 String day = parts[0];
                 String times = parts[1];
 
-
-                lectureTimeMap.merge(day, times, (existingTimes, newTimes) -> existingTimes + ", " + newTimes);
+                lectureTimeMap.merge(day, times,
+                    (existingTimes, newTimes) -> existingTimes + ", " + newTimes);
             }
         }
 
