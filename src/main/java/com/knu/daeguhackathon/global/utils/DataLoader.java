@@ -3,6 +3,7 @@ package com.knu.daeguhackathon.global.utils;
 import com.knu.daeguhackathon.global.utils.course.Course;
 import com.knu.daeguhackathon.global.utils.course.repository.CourseRepository;
 import com.opencsv.CSVReader;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,9 +18,13 @@ public class DataLoader implements CommandLineRunner {
         this.courseRepository = courseRepository;
     }
 
+    @Value("${csv.file.path}")
+    private String csvFilePath;
+
+
     @Override
     public void run(String... args) {
-        importCsv("csvfile.csv");  // CSV 파일 경로
+        importCsv(csvFilePath);  // CSV 파일 경로
     }
 
     private void importCsv(String filePath) {

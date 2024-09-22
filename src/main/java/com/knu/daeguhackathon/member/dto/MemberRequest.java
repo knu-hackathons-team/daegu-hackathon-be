@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class MemberRequest {
 
     private String name;
-    private int speed;
+    private Double speed;
     private String nickName;
 
 }
