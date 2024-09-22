@@ -3,6 +3,7 @@ package com.knu.daeguhackathon.subject.service;
 import com.knu.daeguhackathon.building.Building;
 import com.knu.daeguhackathon.building.repository.BuildingRepository;
 import com.knu.daeguhackathon.global.utils.course.Course;
+import com.knu.daeguhackathon.global.utils.course.dto.CourseResponse;
 import com.knu.daeguhackathon.global.utils.course.repository.CourseRepository;
 import com.knu.daeguhackathon.member.Member;
 import com.knu.daeguhackathon.member.repository.MemberRepository;
@@ -92,24 +93,23 @@ public class SubjectService {
         subjectRepository.save(subject);
     }
 
-    public SubjectResponse.Subjects getSubjectByName(String name) {
-        List<Subject> allSubjects = subjectRepository.findAllByCourseName(name);
+    public CourseResponse.Lists getSubjectByName(String name) {
+        List<Course> allSubjects = courseRepository.findAllByCourseName(name);
 
         if (allSubjects.isEmpty()) {
             throw new RuntimeException("해당 과목을 찾을 수 없습니다.");
         }
-        List<SubjectResponse.Info> subjectInfos = allSubjects.stream()
-            .map(subject -> SubjectResponse.Info.builder()
-                .name(subject.getCourseName())
-                .location(subject.getBuilding().getBuildingName())
-                .code(subject.getSubjectCode())
-                .startHour(subject.getStartHour())
-                .finalHour(subject.getFinalHour())
+        List<CourseResponse.Info> subjectInfos = allSubjects.stream()
+            .map(course -> CourseResponse.Info.builder()
+                .name(course .getCourseName())
+                .location(course .getClassroom())
+                .code(course.getCourseId())
+                .lectureTime(parseLectureTime(course.getLectureTime()))
                 .build())
             .toList();
 
-        return SubjectResponse.Subjects.builder()
-            .subjects(subjectInfos)
+        return CourseResponse.Lists.builder()
+            .courses(subjectInfos)
             .build();
 
     }
