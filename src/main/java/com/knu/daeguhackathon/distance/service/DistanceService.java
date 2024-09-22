@@ -20,7 +20,8 @@ public class DistanceService {
 
     public void saveDistance(Long loginMemberId, DistanceRequest.Info request) {
 
-        Member loginMember = memberRepository.findById(loginMemberId).orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
+        Member loginMember = memberRepository.findById(loginMemberId)
+            .orElseThrow(() -> new RuntimeException("멤버가 존재하지않습니다."));
 
         Distance distance = Distance.builder()
                 .startBuildingName(request.startBuildingName())

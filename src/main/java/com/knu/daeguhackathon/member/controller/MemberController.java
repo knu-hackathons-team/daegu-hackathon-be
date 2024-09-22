@@ -75,8 +75,9 @@ public class MemberController {
     }
 
     @PatchMapping("/member/nickname")
-    public ResponseEntity<Void> changeMemberNickName(@LoginMember Long memberId, @RequestParam("nickname")
-    String memberNickName) {
+    public ResponseEntity<Void> changeMemberNickName(@LoginMember Long memberId,
+        @RequestParam("nickname")
+        String memberNickName) {
         memberService.changeMemberNickName(memberId, memberNickName);
         return ResponseEntity.ok().build();
     }
@@ -88,7 +89,8 @@ public class MemberController {
     }
 
     @PatchMapping("/member/speed")
-    public ResponseEntity<Void> changeMemberSpeed(@LoginMember Long memberId, @RequestParam("speed") Double memberSpeed) {
+    public ResponseEntity<Void> changeMemberSpeed(@LoginMember Long memberId,
+        @RequestParam("speed") Double memberSpeed) {
         memberService.changeMemberSpeed(memberId, memberSpeed);
         return ResponseEntity.ok().build();
     }
