@@ -94,7 +94,7 @@ public class SubjectService {
     }
 
     public CourseResponse.Lists getSubjectByName(String name) {
-        List<Course> allSubjects = courseRepository.findAllByCourseName(name);
+        List<Course> allSubjects = courseRepository.findAllByCourseNameContaining(name);
 
         if (allSubjects.isEmpty()) {
             throw new RuntimeException("해당 과목을 찾을 수 없습니다.");
