@@ -5,6 +5,7 @@
 
 ---
 ### 서비스 링크 : www.wheelcampus.world
+---
 ### 프론트 깃허브 레포지토리 : https://github.com/knu-hackathons-team/daegu-hackathon-fe
 ### 백엔드 깃허브 레포지토리 : https://github.com/knu-hackathons-team/daegu-hackathon-be
 ---
