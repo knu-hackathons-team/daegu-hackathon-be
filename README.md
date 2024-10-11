@@ -40,15 +40,14 @@ WheelCampus - 휠체어를 사용하는 경북대학교 학생들을 위한 길�
 
 
 ## 시연 영상
-(필수) Youtube 링크
-(선택) Github Repository 페이지에서 바로 볼 수 있도록 넣어주셔도 좋습니다.
+https://www.youtube.com/shorts/Z4ywU26XwfU
 
 
 ## 서비스 소개
 ### 서비스 개요
 - 휠체어 사용자가 출발지와 도착지를 선택하면 휠체어 다닐 수 있는 길의 최단 경로와 예상 시간 제공
 - 본인의 휠체어 속도를 단계별로 선택 가능
-- 결과는 카카오메시지로 저장 가능
+- 결과는 카카오메시지로 저장 가능 (미구현)
 
 ### 타서비스와의 차별점
 일반적인 지도 앱들은 휠체어 사용자를 위한 경로를 제공하지 않는 경우가 많음
@@ -65,6 +64,19 @@ WheelCampus - 휠체어를 사용하는 경북대학교 학생들을 위한 길�
 2. 마이페이지
    - 로그인은 카카오 Oauth 로그인
    - 닉네임 변경 가능
+  
+---
+### 구현 사진
+<a href='https://ifh.cc/v-XFMZpd' target='_blank'><img src='https://ifh.cc/g/XFMZpd.jpg' width="300px;" border='0'></a>
+<a href='https://ifh.cc/v-rG7nxv' target='_blank'><img src='https://ifh.cc/g/rG7nxv.png' width="300px;" border='0'></a>
+<a href='https://ifh.cc/v-cf7OHZ' target='_blank'><img src='https://ifh.cc/g/cf7OHZ.png' width="300px;"  border='0'></a>
+<a href='https://ifh.cc/v-JLCSDA' target='_blank'><img src='https://ifh.cc/g/JLCSDA.png' width="300px;"  border='0'></a>
+<a href='https://ifh.cc/v-6FTCNk' target='_blank'><img src='https://ifh.cc/g/6FTCNk.png' width="300px;"  border='0'></a>
+<a href='https://ifh.cc/v-NrqzPL' target='_blank'><img src='https://ifh.cc/g/NrqzPL.jpg' width="300px;"  border='0'></a>
+<a href='https://ifh.cc/v-FmkLrX' target='_blank'><img src='https://ifh.cc/g/FmkLrX.jpg' width="300px;"  border='0'></a>
+<a href='https://ifh.cc/v-LydHYb' target='_blank'><img src='https://ifh.cc/g/LydHYb.jpg' width="300px;"  border='0'></a>
+<a href='https://ifh.cc/v-h2OY2T' target='_blank'><img src='https://ifh.cc/g/h2OY2T.jpg' width="300px;"  border='0'></a>
+<a href='https://ifh.cc/v-54vTF7' target='_blank'><img src='https://ifh.cc/g/54vTF7.jpg' width="300px;"  border='0'></a>
 
 ### 구현 방식
 - 프론트 : typescript, react, emotion css, chakra ui
