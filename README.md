@@ -1,10 +1,12 @@
 # 사군자팀 - WheelCampus
+---
+### 서비스 링크 : www.wheelcampus.world
+---
+
 <a href='https://ifh.cc/v-6PMsQD' target='_blank'>
     <img src='https://ifh.cc/g/8yS02n.png' width="200px;" style="display: block; margin: 0 auto;" border='0'>
 </a>
 
----
-### 서비스 링크 : www.wheelcampus.world
 ---
 ### 프론트 깃허브 레포지토리 : https://github.com/knu-hackathons-team/daegu-hackathon-fe
 ### 백엔드 깃허브 레포지토리 : https://github.com/knu-hackathons-team/daegu-hackathon-be
