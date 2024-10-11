@@ -21,23 +21,34 @@ public class KakaoTokenService {
 
     @Transactional
     public void saveKakaoToken(String email, KakaoTokenResponse tokenInfo) {
-
         Member member = memberRepository.findByEmail(email).orElseThrow(
             () -> new RuntimeException("이메일에 해당하는 Member가 없습니다")
         );
 
-        KakaoToken kakaoToken = KakaoToken.builder()
-            .accessToken(tokenInfo.accessToken())
-            .refreshToken(tokenInfo.refreshToken())
-            .expires_in(tokenInfo.expiresIn())
-            .issuedAt(LocalDateTime.now())
-            .updated_at(LocalDateTime.now())
-            .build();
+        KakaoToken Token = member.getKakaoToken();
 
-        KakaoToken savedToken = kakaoTokenRepository.save(kakaoToken);
+        if (Token != null) {
+            Token.setAccessToken(tokenInfo.accessToken());
+            Token.setRefreshToken(tokenInfo.refreshToken());
+            Token.setExpires_in(tokenInfo.expiresIn());
+            Token.setIssuedAt(LocalDateTime.now());
+            Token.setUpdated_at(LocalDateTime.now());
+            kakaoTokenRepository.save(Token);
+        } else {
+            Token = KakaoToken.builder()
+                .accessToken(tokenInfo.accessToken())
+                .refreshToken(tokenInfo.refreshToken())
+                .expires_in(tokenInfo.expiresIn())
+                .issuedAt(LocalDateTime.now())
+                .updated_at(LocalDateTime.now())
+                .member(member)
+                .build();
 
-        member.setKakaoToken(savedToken);
+            kakaoTokenRepository.save(Token);
+            member.setKakaoToken(Token);
+        }
     }
+
 
     @Transactional
     public void refreshKakaoToken(KakaoToken existingToken) {

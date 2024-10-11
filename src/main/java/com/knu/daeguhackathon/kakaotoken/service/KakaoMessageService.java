@@ -33,7 +33,7 @@ public class KakaoMessageService {
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE);
         headers.setBearerAuth(kakaoToken.getAccessToken());
 
-        String templateObject = createTemplateObject(member.getName(), start, end,
+        String templateObject = createTemplateObject(member.getNickName(), start, end,
             estimatedTime, buildingDistance);
         String encodedTemplateObject = URLEncoder.encode(templateObject, StandardCharsets.UTF_8);
 
@@ -50,17 +50,35 @@ public class KakaoMessageService {
             {
                 "object_type": "feed",
                 "content": {
-                    "title": "%s님의 %s에서 %s까지의 길찾기 결과",
-                    "description": "총 소요시간: %.1f분\\n총 이동거리: %.1f m",
+                    "title": "%s님의 길찾기 결과 입니다.",
+                    "description": "WheelCampus 서비스를 이용해주셔서 감사드립니다.",
                     "image_url": "https://ifh.cc/g/8yS02n.png",
                     "image_width": 640,
                     "image_height": 640,
                     "link": {
-                        "web_url": "https://wheelcampus.vercel.app", 
+                        "web_url": "https://wheelcampus.vercel.app",
                         "mobile_web_url": "https://wheelcampus.vercel.app"
                     }
-                }
+                },
+                "item_content": {
+                    "items": [
+                        {"item": "출발지", "item_op": "%s"},
+                        {"item": "도착지", "item_op": "%s"},
+                        {"item": "소요시간", "item_op": "%.1f분"},
+                        {"item": "이동거리", "item_op": "%.1f m"}
+                    ]
+                },
+                "buttons": [
+                    {
+                        "title": "자세히 보기",
+                        "link": {
+                            "web_url": "https://wheelcampus.vercel.app",
+                            "mobile_web_url": "https://wheelcampus.vercel.app"
+                        }
+                    }
+                ]
             }
-        """.formatted(name, start, end, estimatedTime, buildingDistance);
+        """.formatted(name, start, end, estimatedTime, buildingDistance, start, end, estimatedTime, buildingDistance);
     }
+
 }
