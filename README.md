@@ -4,8 +4,7 @@
 </a>
 
 ---
-### 서비스 링크 : https://wheelcampus.vercel.app
-* 주의사항 : 브라우저에서 보안관련 오류가 뜰 수 있습니다.
+### 서비스 링크 : https://www.wheelcampus.world
 ### 프론트 깃허브 레포지토리 : https://github.com/knu-hackathons-team/daegu-hackathon-fe
 ### 백엔드 깃허브 레포지토리 : https://github.com/knu-hackathons-team/daegu-hackathon-be
 ---
