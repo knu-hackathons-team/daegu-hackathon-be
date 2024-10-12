@@ -42,8 +42,9 @@ WheelCampus - 휠체어를 사용하는 경북대학교 학생들을 위한 길�
 
 
 ## 시연 영상
-https://www.youtube.com/shorts/Z4ywU26XwfU
 
+### [시연영상 보러가기](https://www.youtube.com/watch?v=aMVLtHDLiXQ&ab_channel=SinyoungPark)
+https://www.youtube.com/watch?v=aMVLtHDLiXQ&ab_channel=SinyoungPark
 
 ## 서비스 소개
 ### 서비스 개요
@@ -68,6 +69,10 @@ https://www.youtube.com/shorts/Z4ywU26XwfU
    - 닉네임 변경 가능
    - speed 변경 가능 (3단계)
   
+### 유즈케이스
+<img width="797" alt="image" src="https://github.com/user-attachments/assets/b46c8600-c72d-4202-b8a8-d934fe9186ac">
+
+  
 ---
 ### 구현 사진
 <a href='https://ifh.cc/v-XFMZpd' target='_blank'><img src='https://ifh.cc/g/XFMZpd.jpg' width="300px;" border='0'></a>
@@ -88,6 +93,9 @@ https://www.youtube.com/shorts/Z4ywU26XwfU
 - 백엔드 서버 : AWS
 - 지도 api: Tmap API (JS)
 - Oauth: Kakao
+### 웹 서버 아키텍쳐
+<img width="1355" alt="image" src="https://github.com/user-attachments/assets/30015d47-f652-4fcd-8460-19fc8c2aeb80">
+
 
 ## 향후 개선 혹은 발전 방안
 - 비즈니스 인증을 받아 카카오 채널과 연동하여 메세지를 전송
