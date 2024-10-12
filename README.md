@@ -1,4 +1,4 @@
-# 사군자팀 - WheelCampus
+# WheelCampus
 ---
 ### 서비스 링크 : www.wheelcampus.world
 ---
