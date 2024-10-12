@@ -85,6 +85,9 @@ https://www.youtube.com/watch?v=aMVLtHDLiXQ&ab_channel=SinyoungPark
 <a href='https://ifh.cc/v-LydHYb' target='_blank'><img src='https://ifh.cc/g/LydHYb.jpg' width="300px;"  border='0'></a>
 <a href='https://ifh.cc/v-h2OY2T' target='_blank'><img src='https://ifh.cc/g/h2OY2T.jpg' width="300px;"  border='0'></a>
 <a href='https://ifh.cc/v-54vTF7' target='_blank'><img src='https://ifh.cc/g/54vTF7.jpg' width="300px;"  border='0'></a>
+#### 카카오 전송
+![image](https://github.com/user-attachments/assets/10b648cc-f435-44e2-81e8-b64e02f2d8b3)
+
 
 ### 구현 방식
 - 프론트 : typescript, react, emotion css, chakra ui
