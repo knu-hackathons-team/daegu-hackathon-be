@@ -1,4 +1,5 @@
 # WheelCampus
+> # 2024 대구를 빛내는 해커톤 대상 수상작
 ---
 ### 서비스 링크 : www.wheelcampus.world
 ---
