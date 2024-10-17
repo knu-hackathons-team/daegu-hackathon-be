@@ -71,7 +71,7 @@ https://www.youtube.com/watch?v=aMVLtHDLiXQ&ab_channel=SinyoungPark
    - speed 변경 가능 (3단계)
   
 ### 유즈케이스
-<img width="797" alt="image" src="https://github.com/user-attachments/assets/b46c8600-c72d-4202-b8a8-d934fe9186ac">
+<img width="833" alt="image" src="https://github.com/user-attachments/assets/4674f0fb-c3bb-4ac6-9678-ac0845b19e52">
 
   
 ---
