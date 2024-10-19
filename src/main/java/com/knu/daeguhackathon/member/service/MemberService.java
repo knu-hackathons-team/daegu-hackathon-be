@@ -51,7 +51,7 @@ public class MemberService {
 
         return MemberResponse.builder()
             .name(member.getName())
-            .nickName(member.getName())
+            .nickName(member.getNickName())
             .email(member.getEmail())
             .createdTime(member.getCreatedTime())
             .build();
