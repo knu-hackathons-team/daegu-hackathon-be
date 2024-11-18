@@ -71,7 +71,7 @@ https://www.youtube.com/watch?v=aMVLtHDLiXQ&ab_channel=SinyoungPark
    - speed 변경 가능 (3단계)
   
 ### UseCase Diagram
-<img width="833" alt="image" src="https://github.com/user-attachments/assets/10aa773d-8ec0-4856-a3c7-2bdbf18ffba2">
+<img width="833" alt="image" src="https://github.com/user-attachments/assets/bbf25f4c-327a-44db-b7d1-8f2de61cf9c5">
 
   
 ---
